@@ -1,5 +1,5 @@
 def equilateral(sides):
-    a,b,c = sides
+    a, b, c = sides
     if a or b or c != 0:
         if a + b >= c and a + c >= b and b + c >= a:
             if a == b == c:
@@ -11,7 +11,7 @@ def isosceles(sides):
     a, b, c = sides
     if a or b or c != 0:
         if a + b >= c and a + c >= b and b + c >= a:
-            if a==b or a==c or b==c:
+            if a == b or a == c or b == c:
                 return True
     return False
 
@@ -26,6 +26,6 @@ def scalene(sides):
     return False
 
 
-sides=[3,2,3]
+sides = [3, 2, 3]
 print(all(sides))
 print(set(sides))
