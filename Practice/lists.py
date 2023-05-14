@@ -10,6 +10,7 @@
 # 5. Write a function that takes a list of words as input and returns a new list
 #     containing the words sorted by length from shortest to longest.
 
+
 # ad 1.
 def even_numbers(input_list):
     result = []
@@ -19,8 +20,10 @@ def even_numbers(input_list):
     return result
 
 
-# ad 2.
-
+#
+#
+# # ad 2.
+#
 list_of_words = input("Give me several words separated by a comma: \n")
 words = list_of_words.split(",")
 
@@ -33,11 +36,15 @@ print(words_start_with_a)
 print(selected_words)
 
 
-# ad 3.
-
+#
+#
+# # ad 3.
+#
 def bigger_than_average(list_of_numbers):
     # average = sum(list_of_numbers) / len(list_of_numbers)
-    return [i for i in list_of_numbers if i > sum(list_of_numbers) / len(list_of_numbers)]
+    return [
+        i for i in list_of_numbers if i > sum(list_of_numbers) / len(list_of_numbers)
+    ]
     # for i in list_of_numbers:
     #     if i > average:
     #
@@ -45,3 +52,13 @@ def bigger_than_average(list_of_numbers):
 
 
 print(bigger_than_average([10, 2, 5, 8, 6, 4, 156, 23, 236, 99]))
+
+
+# ad 4.
+def compare_list(first_list, second_list):
+    return [i for i in first_list if i in second_list]
+
+
+# ad 5.
+def sorted_by_length(wordlist: list):
+    return sorted(wordlist, key=len)
