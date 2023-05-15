@@ -67,6 +67,7 @@ def plant_food_animal(animalsfood):
     #                 vege_animals.append(key)
     # return vege_animals
 
+
     vege_animals = []
     for key, value in animalsfood.items():
         if any(food in plant_foods for food in value):
