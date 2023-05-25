@@ -135,7 +135,6 @@ def printing_films():
 
 # ad 3:
 
-
 def add_employee():
     name = input("Name of employee: ")
     position = input("Position: ")
@@ -155,26 +154,66 @@ def update_employee():
     employees.update({name: {"pozice": new_position, "salary": new_salary}})
 
 
+def search_employee():
+    print("1. Search by position")
+    print("2. Search by salary")
+    search_choice = input("Your search choice: ")
+    if search_choice == "1":
+        position = input("Write position: ")
+        x = search_employee_by_position(position)
+        pr_empl(x)
+    elif search_choice == "2":
+        salary = input("Write salary: ")
+        if salary.isnumeric():
+            x = search_employee_by_salary(int(salary))
+            pr_empl(x)
+        else:
+            print("Only numbers!")
+    else:
+        print("Wrong choice!")
+
+
 def search_employee_by_position(position):
-    names = []
+    names = {}
     for name, value in employees.items():
         if position in value.values():
-            names.append(name)
+            names.update({name: value})
     return names
 
 
 def search_employee_by_salary(salary):
-    names = []
+    names = {}
     for name, value in employees.items():
         if salary == value["plat"]:
-            names.append(name)
+            names.update({name: value})
     return names
 
 
-def pr_empl():
-    x = 1
-    print()
-    for employee, value in employees.items():
-        print(f"{x}. {employee}: {value}")
-        x += 1
-    print()
+def pr_empl(x):
+    a = 1
+    for employee, value in x.items():
+        print(f"{a}. {employee}: {value}")
+        a += 1
+
+
+def main():
+    while True:
+        print("\n1. Add employee")
+        print("2. Update employee")
+        print("3. Search employee")
+        print("4. End")
+        choice = input("Your choice: ")
+        if choice == "1":
+            add_employee()
+        elif choice == "2":
+            update_employee()
+        elif choice == "3":
+            search_employee()
+        elif choice == "4":
+            print("Ending program.")
+            break
+        else:
+            print("Wrong choice. Write only numbers 1-4.")
+
+
+main()
